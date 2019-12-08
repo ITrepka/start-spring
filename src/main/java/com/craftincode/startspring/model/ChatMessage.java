@@ -7,10 +7,12 @@ public class ChatMessage {
     private String author;
     private String text;
 
-    public ChatMessage(OffsetDateTime date, String author, String text) {
-        this.date = date;
+    public ChatMessage(){}
+
+    public ChatMessage(String author, String text) {
         this.author = author;
         this.text = text;
+        this.date = OffsetDateTime.now();
     }
 
     public OffsetDateTime getDate() {
