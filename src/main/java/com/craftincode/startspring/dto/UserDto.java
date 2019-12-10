@@ -1,13 +1,12 @@
-package com.craftincode.startspring.model;
+package com.craftincode.startspring.dto;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.OffsetDateTime;
 
-public class User {
+public class UserDto {
     private String name;
     private String login;
-    private String password;
     private Integer birthYear;
     private Integer id;
     @DateTimeFormat(pattern = "YYYY-mm-DD")
@@ -15,21 +14,16 @@ public class User {
     @DateTimeFormat(pattern = "YYYY-mm-DD")
     private OffsetDateTime updatedAt;
 
-    public User(Integer id, String name, String login, String password, Integer birthYear, OffsetDateTime createdAt) {
-        this.id = id;
+    public UserDto() {
+    }
+
+    public UserDto(String name, String login, Integer birthYear, Integer id, OffsetDateTime createdAt, OffsetDateTime updatedAt) {
         this.name = name;
         this.login = login;
-        this.password = password;
         this.birthYear = birthYear;
-        this.createdAt = createdAt;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
         this.id = id;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public String getName() {
@@ -48,20 +42,20 @@ public class User {
         this.login = login;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public Integer getBirthYear() {
         return birthYear;
     }
 
     public void setBirthYear(Integer birthYear) {
         this.birthYear = birthYear;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public OffsetDateTime getCreatedAt() {
@@ -79,17 +73,4 @@ public class User {
     public void setUpdatedAt(OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", birthYear=" + birthYear +
-                '}';
-    }
-
-
 }
